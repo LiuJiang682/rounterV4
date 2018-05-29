@@ -1,11 +1,9 @@
 import React, { Component } from 'react';
-import { Link,Route,Switch, BrowserRouter } from 'react-router-dom';
-import Category from './Category';
-import Products from './Products';
+import { Route,Switch } from 'react-router-dom';
 import Main from './Main';
 import Cars from './Cars';
 import CarDetail from './carDetails';
-import history from './history';
+import About from './About';
 
   const data = [
     {
@@ -73,13 +71,14 @@ class App extends Component {
         </nav> */}
         <Main />
       
-        <BrowserRouter history={history}>
+        {/* <BrowserRouter history={history}> */}
           <Switch>
             <Route path="/cars/:id" render={ (props) => <CarDetail data= {data} {...props} />}/>
             <Route path="/cars" render={ (props) => <Cars data= {data} {...props} />}/>
+            <Route path="/about" component={About}/>
             <Route exact path="/" component={Home}/>
           </Switch>
-        </BrowserRouter>
+        {/* </BrowserRouter> */}
         
       </div>
     );
